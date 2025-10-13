@@ -1,0 +1,26 @@
+.map-container {
+  height: calc(100vh - 64px);
+  width: 100%;
+}
+.locate-button {
+  background: #18a957;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.leaflet-popup-content .popup-card {
+  max-width: 220px;
+}
+.leaflet-popup-content .popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.leaflet-popup-content .popup-image {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}

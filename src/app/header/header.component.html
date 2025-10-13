@@ -1,0 +1,44 @@
+<header class="tsl-header">
+  <div class="brand-area">
+    <img src="assets/logo-tsl.svg" alt="TSL" class="brand-logo" />
+    <div class="brand-text">
+      <div class="brand-title">TSL</div>
+      <div class="brand-subtitle">Traffic Sign Location Management</div>
+    </div>
+  </div>
+
+  <form class="location-search" (submit)="$event.preventDefault(); onSearch()">
+    <input
+      class="search-input"
+      type="text"
+      [(ngModel)]="query"
+      name="query"
+      placeholder="Search location or address"
+      aria-label="Search location or address"
+    />
+    <button class="search-button" type="submit" [disabled]="searching()">Search</button>
+    <ul class="search-suggestions" *ngIf="suggestions().length">
+      <li *ngFor="let s of suggestions()" (click)="onPickSuggestion(s)" class="suggestion-item">
+        {{ s.display_name }}
+      </li>
+    </ul>
+  </form>
+
+  <div class="user-actions">
+    <a routerLink="/admin" class="admin-button">Admin Panel</a>
+
+    <div class="profile-menu">
+      <div class="profile-info">
+        <div class="avatar" aria-hidden="true">{{ user().name.charAt(0) }}</div>
+        <div class="profile-text">
+          <div class="profile-name">{{ user().name }}</div>
+          <div class="coin-balance">TSL Coin: {{ user().tslCoins }}</div>
+        </div>
+      </div>
+      <div class="profile-dropdown">
+        <a class="dropdown-item" href="#">Profile</a>
+        <a class="dropdown-item" href="#">Logout</a>
+      </div>
+    </div>
+  </div>
+</header>

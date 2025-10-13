@@ -1,0 +1,68 @@
+<aside class="sidebar">
+  <section class="summary-cards">
+    <div class="summary-card">
+      <div class="summary-title">Total Verified Signs</div>
+      <div class="summary-value">{{ stats().totalVerified }}</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-title">Pending Submissions</div>
+      <div class="summary-value">{{ stats().pending }}</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-title">Active Users</div>
+      <div class="summary-value">{{ stats().activeUsers }}</div>
+    </div>
+  </section>
+
+  <section class="primary-actions">
+    <button class="submit-button">+ Submit New Sign</button>
+  </section>
+
+  <section class="filters">
+    <h3 class="section-title">Filters</h3>
+    <div class="filter-group">
+      <div class="filter-heading">Types</div>
+      <label class="filter-item"
+        ><input type="checkbox" checked (change)="toggleType('Warning', $event)" /> Warning</label
+      >
+      <label class="filter-item"
+        ><input type="checkbox" checked (change)="toggleType('Regulatory', $event)" />
+        Regulatory</label
+      >
+      <label class="filter-item"
+        ><input type="checkbox" checked (change)="toggleType('Informational', $event)" />
+        Informational</label
+      >
+    </div>
+    <div class="filter-group">
+      <div class="filter-heading">Status</div>
+      <label class="filter-item"
+        ><input type="checkbox" checked (change)="toggleStatus('Verified', $event)" />
+        Verified</label
+      >
+      <label class="filter-item"
+        ><input type="checkbox" checked (change)="toggleStatus('Pending', $event)" /> Pending</label
+      >
+    </div>
+  </section>
+
+  <section class="verify-queue">
+    <h3 class="section-title">Submissions to Verify</h3>
+    <ul class="submission-list">
+      <li class="submission-item" *ngFor="let s of submissions()">
+        <img [src]="s.imageUrl" [alt]="s.type + ' sign'" class="submission-thumb" />
+        <div class="submission-info">
+          <div class="submission-title">{{ s.type }} sign</div>
+          <div class="submission-meta">
+            Lat: {{ s.lat.toFixed(4) }}, Lng: {{ s.lng.toFixed(4) }}
+          </div>
+          <div class="submission-votes">For: {{ s.votesFor }} · Against: {{ s.votesAgainst }}</div>
+        </div>
+        <div class="submission-actions">
+          <button class="vote-button approve" (click)="approve(s.id)">Approve</button>
+          <button class="vote-button reject" (click)="reject(s.id)">Reject</button>
+        </div>
+      </li>
+    </ul>
+  </section>
+</aside>

@@ -1,0 +1,69 @@
+<div class="admin-header">
+  <a routerLink="/" class="back-link">← Back to Dashboard</a>
+  <h1 class="admin-title">Admin Panel</h1>
+</div>
+
+<section class="admin-stats">
+  <div class="admin-card">
+    <div class="card-title">Total Verified Signs</div>
+    <div class="card-value">{{ stats().totalVerified }}</div>
+  </div>
+  <div class="admin-card">
+    <div class="card-title">Pending Items</div>
+    <div class="card-value">{{ stats().pending }}</div>
+  </div>
+  <div class="admin-card">
+    <div class="card-title">Active Users</div>
+    <div class="card-value">{{ stats().activeUsers }}</div>
+  </div>
+</section>
+
+<section class="admin-charts">
+  <div class="chart-card">
+    <div class="chart-title">Submissions Over Time</div>
+    <div class="bar-chart">
+      <div class="bar" style="height: 60%"></div>
+      <div class="bar" style="height: 80%"></div>
+      <div class="bar" style="height: 40%"></div>
+      <div class="bar" style="height: 75%"></div>
+      <div class="bar" style="height: 55%"></div>
+      <div class="bar" style="height: 90%"></div>
+    </div>
+  </div>
+  <div class="chart-card">
+    <div class="chart-title">Approval Rate</div>
+    <div class="progress">
+      <div class="progress-fill" style="width: 72%"></div>
+    </div>
+    <div class="progress-label">72%</div>
+  </div>
+</section>
+
+<section class="admin-table">
+  <h2 class="section-title">All Submissions</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Type</th>
+        <th>Location</th>
+        <th>Votes</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of submissions()">
+        <td><img [src]="s.imageUrl" [alt]="s.type + ' sign'" class="table-thumb" /></td>
+        <td>{{ s.type }}</td>
+        <td>{{ s.lat.toFixed(4) }}, {{ s.lng.toFixed(4) }}</td>
+        <td>For: {{ s.votesFor }} · Against: {{ s.votesAgainst }}</td>
+        <td>
+          <button class="table-action approve" (click)="data.approveSubmission(s.id)">
+            Approve
+          </button>
+          <button class="table-action reject" (click)="data.rejectSubmission(s.id)">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
