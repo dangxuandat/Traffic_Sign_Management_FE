@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component, effect, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -12,13 +12,13 @@ import { DataService } from '../core/data.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  public readonly data = inject(DataService);
+
   query = '';
   searching = signal(false);
   suggestions = signal<{ display_name: string; lat: string; lon: string }[]>([]);
 
   user = this.data.getUser();
-
-  constructor(private data: DataService) {}
 
   async onSearch() {
     this.searching.set(true);
