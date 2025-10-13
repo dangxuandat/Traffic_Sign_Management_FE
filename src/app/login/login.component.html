@@ -10,7 +10,9 @@
       </div>
 
       <div class="brand-message">
-        <h2 class="vision-title">AI-Enhanced Crowdsourcing for Real-Time Traffic Sign Management</h2>
+        <h2 class="vision-title">
+          AI-Enhanced Crowdsourcing for Real-Time Traffic Sign Management
+        </h2>
         <p class="vision-subtitle">Join us to make roads safer.</p>
       </div>
     </div>
@@ -23,8 +25,17 @@
       <form (ngSubmit)="onSubmit()" #loginForm="ngForm" novalidate>
         <label class="input-group">
           <span class="input-icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5Zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5Z" fill="currentColor"/>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5Zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5Z"
+                fill="currentColor"
+              />
             </svg>
           </span>
           <input
@@ -41,8 +52,17 @@
 
         <label class="input-group">
           <span class="input-icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 10V8a6 6 0 1 1 12 0v2h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1Zm2 0h8V8a4 4 0 1 0-8 0v2Z" fill="currentColor"/>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6 10V8a6 6 0 1 1 12 0v2h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1Zm2 0h8V8a4 4 0 1 0-8 0v2Z"
+                fill="currentColor"
+              />
             </svg>
           </span>
           <input
@@ -61,7 +81,11 @@
           <a href="#" class="helper-link">Forgot Password?</a>
         </div>
 
-        <button class="primary-button" type="submit" [disabled]="submitting || !loginForm.form.valid">
+        <button
+          class="primary-button"
+          type="submit"
+          [disabled]="submitting || !loginForm.form.valid"
+        >
           {{ submitting ? 'Logging in…' : 'Login' }}
         </button>
       </form>

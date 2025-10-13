@@ -6,7 +6,12 @@
 
 .brand-panel {
   position: relative;
-  background: radial-gradient(1200px 600px at -10% -20%, rgba(24, 169, 87, 0.25) 0%, rgba(24, 169, 87, 0) 60%),
+  background:
+    radial-gradient(
+      1200px 600px at -10% -20%,
+      rgba(24, 169, 87, 0.25) 0%,
+      rgba(24, 169, 87, 0) 60%
+    ),
     linear-gradient(160deg, var(--tsl-deep-blue), #0a2a48 60%);
   color: var(--tsl-white);
 }
@@ -109,7 +114,9 @@
   color: #335066;
   text-decoration: none;
 }
-.helper-link:hover { text-decoration: underline; }
+.helper-link:hover {
+  text-decoration: underline;
+}
 
 .primary-button {
   width: 100%;
@@ -136,7 +143,9 @@
   color: var(--tsl-deep-blue);
   text-decoration: none;
 }
-.signup-link:hover { text-decoration: underline; }
+.signup-link:hover {
+  text-decoration: underline;
+}
 
 @media (max-width: 900px) {
   .auth-layout {
