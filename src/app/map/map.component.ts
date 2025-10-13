@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, effect, inject, signal } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, effect, inject, signal, EffectRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import * as L from 'leaflet';
 import { DataService } from '../core/data.service';
@@ -22,7 +22,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     Informational: L.icon({ iconUrl: 'assets/icons/informational.svg', iconSize: [28, 28], iconAnchor: [14, 14] })
   };
 
-  private cleanup: (() => void)[] = [];
+  private cleanup: EffectRef[] = [];
 
   ngAfterViewInit() {
     this.map = L.map('tsl-map', {
@@ -49,7 +49,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.cleanup.forEach(fn => fn());
+    this.cleanup.forEach(e => e.destroy());
     this.map?.remove();
   }
 
@@ -92,20 +92,22 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   private addLocateControl() {
     if (!this.map) return;
-    const locateControl = L.control({ position: 'topleft' });
-    locateControl.onAdd = () => {
-      const btn = L.DomUtil.create('button', 'locate-button');
-      btn.title = 'Center on my location';
-      btn.innerText = '◎';
-      btn.onclick = (e) => {
-        e.preventDefault();
-        if (!navigator.geolocation) return;
-        navigator.geolocation.getCurrentPosition((pos) => {
-          this.data.centerOn(pos.coords.latitude, pos.coords.longitude, 16);
-        });
-      };
-      return btn;
-    };
-    locateControl.addTo(this.map);
+    const LocateControl = (L.Control as any).extend({
+      onAdd: () => {
+        const btn = L.DomUtil.create('button', 'locate-button');
+        btn.title = 'Center on my location';
+        btn.innerText = '◎';
+        btn.onclick = (e: MouseEvent) => {
+          e.preventDefault();
+          if (!navigator.geolocation) return;
+          navigator.geolocation.getCurrentPosition((pos) => {
+            this.data.centerOn(pos.coords.latitude, pos.coords.longitude, 16);
+          });
+        };
+        return btn;
+      }
+    });
+    const locateControl = new LocateControl({ position: 'topleft' });
+    locateControl.addTo(this.map as L.Map);
   }
 }
