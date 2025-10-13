@@ -21,7 +21,6 @@ export class LoginComponent {
     if (!this.username || !this.password) return;
     this.submitting = true;
     try {
-      // Placeholder for real auth integration
       await new Promise((res) => setTimeout(res, 600));
       this.router.navigateByUrl('/');
     } finally {
