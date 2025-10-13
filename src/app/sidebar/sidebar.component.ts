@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../core/data.service';
 import { FormsModule } from '@angular/forms';
@@ -11,11 +11,11 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
+  public readonly data = inject(DataService);
+
   stats = this.data.stats;
   filters = this.data.getFilters();
   submissions = this.data.getSubmissions();
-
-  constructor(private data: DataService) {}
 
   toggleType(type: 'Regulatory' | 'Warning' | 'Informational', ev: Event) {
     const checked = (ev.target as HTMLInputElement).checked;
