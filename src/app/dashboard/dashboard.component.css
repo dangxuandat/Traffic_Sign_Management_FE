@@ -1,4 +1,23 @@
-.dashboard-layout{display:grid;grid-template-columns:340px 1fr;min-height:calc(100vh - 64px)}
-.layout-sidebar{grid-column:1}
-.layout-map{grid-column:2}
-@media (max-width: 900px){.dashboard-layout{grid-template-columns:1fr;grid-auto-rows:auto}.layout-sidebar{order:2}.layout-map{order:1}}
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  min-height: calc(100vh - 64px);
+}
+.layout-sidebar {
+  grid-column: 1;
+}
+.layout-map {
+  grid-column: 2;
+}
+@media (max-width: 900px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  .layout-sidebar {
+    order: 2;
+  }
+  .layout-map {
+    order: 1;
+  }
+}

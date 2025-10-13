@@ -8,7 +8,7 @@ import { DataService } from '../core/data.service';
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent {
   public readonly data = inject(DataService);

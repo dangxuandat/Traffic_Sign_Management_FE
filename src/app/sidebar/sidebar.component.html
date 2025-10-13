@@ -22,14 +22,27 @@
     <h3 class="section-title">Filters</h3>
     <div class="filter-group">
       <div class="filter-heading">Types</div>
-      <label class="filter-item"><input type="checkbox" checked (change)="toggleType('Warning', $event)"/> Warning</label>
-      <label class="filter-item"><input type="checkbox" checked (change)="toggleType('Regulatory', $event)"/> Regulatory</label>
-      <label class="filter-item"><input type="checkbox" checked (change)="toggleType('Informational', $event)"/> Informational</label>
+      <label class="filter-item"
+        ><input type="checkbox" checked (change)="toggleType('Warning', $event)" /> Warning</label
+      >
+      <label class="filter-item"
+        ><input type="checkbox" checked (change)="toggleType('Regulatory', $event)" />
+        Regulatory</label
+      >
+      <label class="filter-item"
+        ><input type="checkbox" checked (change)="toggleType('Informational', $event)" />
+        Informational</label
+      >
     </div>
     <div class="filter-group">
       <div class="filter-heading">Status</div>
-      <label class="filter-item"><input type="checkbox" checked (change)="toggleStatus('Verified', $event)"/> Verified</label>
-      <label class="filter-item"><input type="checkbox" checked (change)="toggleStatus('Pending', $event)"/> Pending</label>
+      <label class="filter-item"
+        ><input type="checkbox" checked (change)="toggleStatus('Verified', $event)" />
+        Verified</label
+      >
+      <label class="filter-item"
+        ><input type="checkbox" checked (change)="toggleStatus('Pending', $event)" /> Pending</label
+      >
     </div>
   </section>
 
@@ -40,7 +53,9 @@
         <img [src]="s.imageUrl" [alt]="s.type + ' sign'" class="submission-thumb" />
         <div class="submission-info">
           <div class="submission-title">{{ s.type }} sign</div>
-          <div class="submission-meta">Lat: {{ s.lat.toFixed(4) }}, Lng: {{ s.lng.toFixed(4) }}</div>
+          <div class="submission-meta">
+            Lat: {{ s.lat.toFixed(4) }}, Lng: {{ s.lng.toFixed(4) }}
+          </div>
           <div class="submission-votes">For: {{ s.votesFor }} · Against: {{ s.votesAgainst }}</div>
         </div>
         <div class="submission-actions">

@@ -1,15 +1,35 @@
 /* Global styles */
-@import "leaflet/dist/leaflet.css";
+@import 'leaflet/dist/leaflet.css';
 
-:root{
-  --tsl-deep-blue:#0b2a4a;
-  --tsl-green:#18a957;
-  --tsl-white:#ffffff;
+:root {
+  --tsl-deep-blue: #0b2a4a;
+  --tsl-green: #18a957;
+  --tsl-white: #ffffff;
 }
 
-html,body{height:100%}
-body{margin:0;background:#f7fafc;color:#0b2a4a;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-*{box-sizing:border-box}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: #f7fafc;
+  color: #0b2a4a;
+  font-family:
+    Inter,
+    system-ui,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
 
 /* Ensure header occupies consistent height */
-app-header-bar{display:block;height:64px}
+app-header-bar {
+  display: block;
+  height: 64px;
+}

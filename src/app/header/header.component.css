@@ -1,25 +1,149 @@
-.tsl-header{display:flex;align-items:center;justify-content:space-between;background-color:#0b2a4a;color:#fff;padding:0.75rem 1rem;position:relative}
-.brand-area{display:flex;align-items:center;gap:0.5rem}
-.brand-logo{height:36px;width:auto}
-.brand-text{line-height:1}
-.brand-title{font-weight:700;letter-spacing:0.5px}
-.brand-subtitle{font-size:0.75rem;opacity:0.85}
-.location-search{position:relative;flex:1;max-width:640px;margin:0 1rem}
-.search-input{width:100%;padding:0.5rem 0.75rem;border-radius:999px;border:1px solid rgba(255,255,255,0.25);background:#fff;color:#111}
-.search-button{position:absolute;right:0.25rem;top:50%;transform:translateY(-50%);background-color:#18a957;color:#fff;border:0;border-radius:999px;padding:0.4rem 0.9rem;cursor:pointer}
-.search-button:disabled{opacity:.7;cursor:default}
-.search-suggestions{position:absolute;left:0;right:0;top:110%;background:#fff;color:#111;border-radius:0.5rem;box-shadow:0 6px 24px rgba(0,0,0,.15);z-index:10;max-height:260px;overflow:auto;margin:0;padding:0.25rem 0;list-style:none}
-.suggestion-item{padding:0.5rem 0.75rem;cursor:pointer}
-.suggestion-item:hover{background:#f3f6f8}
-.user-actions{display:flex;align-items:center;gap:1rem}
-.admin-button{background:transparent;border:1px solid #18a957;color:#18a957;padding:0.4rem 0.9rem;border-radius:999px;text-decoration:none}
-.profile-menu{position:relative}
-.profile-info{display:flex;align-items:center;gap:0.5rem;cursor:pointer}
-.avatar{height:32px;width:32px;border-radius:50%;background:#18a957;display:flex;align-items:center;justify-content:center;color:#0b2a4a;font-weight:700}
-.profile-text{line-height:1}
-.profile-name{font-size:0.85rem}
-.coin-balance{font-size:0.7rem;opacity:0.85}
-.profile-menu:hover .profile-dropdown{display:block}
-.profile-dropdown{display:none;position:absolute;right:0;top:120%;background:#fff;color:#111;border-radius:0.5rem;box-shadow:0 10px 24px rgba(0,0,0,.15);min-width:160px;overflow:hidden}
-.dropdown-item{display:block;padding:0.5rem 0.75rem;color:#111;text-decoration:none}
-.dropdown-item:hover{background:#f3f6f8}
+.tsl-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0b2a4a;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  position: relative;
+}
+.brand-area {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.brand-logo {
+  height: 36px;
+  width: auto;
+}
+.brand-text {
+  line-height: 1;
+}
+.brand-title {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.brand-subtitle {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+.location-search {
+  position: relative;
+  flex: 1;
+  max-width: 640px;
+  margin: 0 1rem;
+}
+.search-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #fff;
+  color: #111;
+}
+.search-button {
+  position: absolute;
+  right: 0.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #18a957;
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+.search-button:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+.search-suggestions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 110%;
+  background: #fff;
+  color: #111;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  max-height: 260px;
+  overflow: auto;
+  margin: 0;
+  padding: 0.25rem 0;
+  list-style: none;
+}
+.suggestion-item {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+.suggestion-item:hover {
+  background: #f3f6f8;
+}
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.admin-button {
+  background: transparent;
+  border: 1px solid #18a957;
+  color: #18a957;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.profile-menu {
+  position: relative;
+}
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.avatar {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: #18a957;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b2a4a;
+  font-weight: 700;
+}
+.profile-text {
+  line-height: 1;
+}
+.profile-name {
+  font-size: 0.85rem;
+}
+.coin-balance {
+  font-size: 0.7rem;
+  opacity: 0.85;
+}
+.profile-menu:hover .profile-dropdown {
+  display: block;
+}
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 120%;
+  background: #fff;
+  color: #111;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  overflow: hidden;
+}
+.dropdown-item {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: #111;
+  text-decoration: none;
+}
+.dropdown-item:hover {
+  background: #f3f6f8;
+}

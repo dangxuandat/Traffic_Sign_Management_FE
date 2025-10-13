@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, OnDestroy, effect, inject, signal, EffectRef } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  effect,
+  inject,
+  signal,
+  EffectRef,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import * as L from 'leaflet';
 import { DataService } from '../core/data.service';
@@ -9,7 +17,7 @@ import { TrafficSign } from '../core/models';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  styleUrls: ['./map.component.css'],
 })
 export class MapComponent implements AfterViewInit, OnDestroy {
   private map?: L.Map;
@@ -17,9 +25,21 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   private data = inject(DataService);
 
   private iconByType: Record<string, L.Icon> = {
-    Regulatory: L.icon({ iconUrl: 'assets/icons/regulatory.svg', iconSize: [28, 28], iconAnchor: [14, 14] }),
-    Warning: L.icon({ iconUrl: 'assets/icons/warning.svg', iconSize: [28, 28], iconAnchor: [14, 14] }),
-    Informational: L.icon({ iconUrl: 'assets/icons/informational.svg', iconSize: [28, 28], iconAnchor: [14, 14] })
+    Regulatory: L.icon({
+      iconUrl: 'assets/icons/regulatory.svg',
+      iconSize: [28, 28],
+      iconAnchor: [14, 14],
+    }),
+    Warning: L.icon({
+      iconUrl: 'assets/icons/warning.svg',
+      iconSize: [28, 28],
+      iconAnchor: [14, 14],
+    }),
+    Informational: L.icon({
+      iconUrl: 'assets/icons/informational.svg',
+      iconSize: [28, 28],
+      iconAnchor: [14, 14],
+    }),
   };
 
   private cleanup: EffectRef[] = [];
@@ -28,28 +48,32 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     this.map = L.map('tsl-map', {
       center: [this.data.centerLat(), this.data.centerLng()],
       zoom: this.data.centerZoom(),
-      zoomControl: true
+      zoomControl: true,
     });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
+      attribution: '&copy; OpenStreetMap contributors',
     }).addTo(this.map);
 
     this.renderMarkers(this.data.filteredSigns());
 
-    this.cleanup.push(effect(() => {
-      this.map!.setView([this.data.centerLat(), this.data.centerLng()], this.data.centerZoom());
-    }));
+    this.cleanup.push(
+      effect(() => {
+        this.map!.setView([this.data.centerLat(), this.data.centerLng()], this.data.centerZoom());
+      }),
+    );
 
-    this.cleanup.push(effect(() => {
-      this.renderMarkers(this.data.filteredSigns());
-    }));
+    this.cleanup.push(
+      effect(() => {
+        this.renderMarkers(this.data.filteredSigns());
+      }),
+    );
 
     this.addLocateControl();
   }
 
   ngOnDestroy(): void {
-    this.cleanup.forEach(e => e.destroy());
+    this.cleanup.forEach((e) => e.destroy());
     this.map?.remove();
   }
 
@@ -105,7 +129,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
           });
         };
         return btn;
-      }
+      },
     });
     const locateControl = new LocateControl({ position: 'topleft' });
     locateControl.addTo(this.map as L.Map);

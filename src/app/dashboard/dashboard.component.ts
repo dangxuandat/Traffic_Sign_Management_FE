@@ -9,6 +9,6 @@ import { MapComponent } from '../map/map.component';
   standalone: true,
   imports: [CommonModule, HeaderComponent, SidebarComponent, MapComponent],
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {}

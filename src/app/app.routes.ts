@@ -5,5 +5,5 @@ import { AdminComponent } from './admin/admin.component';
 export const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'admin', component: AdminComponent },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
 ];

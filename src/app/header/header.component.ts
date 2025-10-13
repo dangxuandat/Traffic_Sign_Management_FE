@@ -9,7 +9,7 @@ import { DataService } from '../core/data.service';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
   public readonly data = inject(DataService);
